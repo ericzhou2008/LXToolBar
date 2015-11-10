@@ -76,3 +76,23 @@
 /*! 重新加载所有的Items */
 - (void) reloadAllItems;
 ```
+
+###接口使用：
+```objc
+- (IBAction)buttonClick:(id)sender {
+    //隐藏ToolBar的选中状态
+    [_toolBar hiddenCurrentSelectedStatus];
+}
+
+- (IBAction)isShowSelectedTagSwitchValueChanged:(id)sender {
+    UISwitch * curSwitch = (UISwitch *)sender;
+    _toolBar.isShowSelectedTag = curSwitch.isOn;
+    [_toolBar reloadAllItems];
+}
+
+- (IBAction)isShowItemsSeparatorLineSwitchValueChanged:(id)sender {
+    UISwitch * curSwitch = (UISwitch *)sender;
+    _toolBar.isShowSeparatorLine = curSwitch.isOn;
+    [_toolBar reloadAllItems];
+}
+```
